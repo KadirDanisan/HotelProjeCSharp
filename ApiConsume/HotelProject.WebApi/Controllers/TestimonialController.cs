@@ -10,38 +10,38 @@ namespace HotelProject.WebApi.Controllers
     public class TestimonialController : ControllerBase
     {
         private readonly ITestimonialService _testimonialService;
-        public TestimonialController(ITestimonialService testimoniaService)
+        public TestimonialController(ITestimonialService testimonialService)
         {
-            _testimonialService = testimoniaService;
+            _testimonialService = testimonialService;
         }
 
         [HttpGet]
-        public IActionResult TestimoniaList()
+        public IActionResult TestimonialList()
         {
             var values = _testimonialService.TGetList();
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult AddTestimonia(Testimonial testimonia)
+        public IActionResult AddTestimonial(Testimonial testimonial)
         {
-            _testimonialService.TInsert(testimonia);
+            _testimonialService.TInsert(testimonial);
             return Ok();
         }
         [HttpDelete("{id}")]
-        public IActionResult DeleteTestimonia(int id)
+        public IActionResult DeleteTestimonial(int id)
         {
             var values = _testimonialService.TGetById(id);
             _testimonialService.TDelete(values);
             return Ok();
         }
         [HttpPut]
-        public IActionResult UpdateTestimonia(Testimonial testimonia)
+        public IActionResult UpdateTestimonial(Testimonial testimonial)
         {
-            _testimonialService.TUpdate(testimonia);
+            _testimonialService.TUpdate(testimonial);
             return Ok();
         }
         [HttpGet("{id}")]
-        public IActionResult GetTestimonia(int id)
+        public IActionResult GetTestimonial(int id)
         {
             var values = _testimonialService.TGetById(id);
 

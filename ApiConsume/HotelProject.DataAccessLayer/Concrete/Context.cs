@@ -1,4 +1,5 @@
 ﻿using HotelProject.EntityLayers.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
@@ -7,7 +8,7 @@ using System.Configuration; // ConfigurationManager için gerekli
 
 namespace HotelProjectDataAccesLayer.Concrete
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext<AppUser, AppRole, int>
     {
         protected readonly IConfiguration Configuration;
 
@@ -18,14 +19,19 @@ namespace HotelProjectDataAccesLayer.Concrete
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            // Bağlantı dizesini burada ayarlayın
-            options.UseNpgsql(Configuration.GetConnectionString("WebApiDatabase"));
+            var connectionString = Configuration.GetConnectionString("WebApiDatabase");
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new InvalidOperationException("Connection string is missing or invalid.");
+            }
+
+            options.UseNpgsql(connectionString);
         }
 
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
-        public DbSet<Testimonial> Testimonias { get; set; }
+        public DbSet<Testimonial> Testimonial { get; set; }
     }
 }

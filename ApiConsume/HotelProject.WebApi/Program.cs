@@ -1,10 +1,12 @@
+
+
+
 using HotelProject.BusinessLayer.Abstract;
 using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.EntityFramework;
 using HotelProjectDataAccesLayer.Concrete;
-using AutoMapper;
-using HotelProject.WebApi.Mapping;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +23,7 @@ builder.Services.AddDbContext<Context>(); // Veritabaný baðlantýsý
 builder.Services.AddScoped<IStaffDal, EfStaffDal>();
 builder.Services.AddScoped<IStaffService, StaffManager>();
 
-builder.Services.AddScoped<IServicesDal, EfServiceDal>();
+builder.Services.AddScoped<IServiceDal, EfServiceDal>();
 builder.Services.AddScoped<IServiceService, ServiceManager>();
 
 builder.Services.AddScoped<IRoomDal, EfRoomDal>();

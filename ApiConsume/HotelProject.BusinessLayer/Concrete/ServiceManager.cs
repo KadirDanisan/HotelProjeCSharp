@@ -4,6 +4,7 @@ using HotelProject.EntityLayers.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,36 +12,35 @@ namespace HotelProject.BusinessLayer.Concrete
 {
     public class ServiceManager : IServiceService
     {
-        private readonly IServicesDal _servicesDal;
+        private readonly IServiceDal _serviceDal;
 
-        public ServiceManager(IServicesDal servicesDal)
+        public ServiceManager(IServiceDal serviceDal)
         {
-            _servicesDal = servicesDal;
+            _serviceDal = serviceDal;
         }
-
         public void TDelete(Service t)
         {
-            _servicesDal.Delete(t);
+            _serviceDal.Delete(t);
         }
 
         public Service TGetById(int id)
         {
-            return _servicesDal.GetById(id);
+            return _serviceDal.GetById(id);
         }
 
         public List<Service> TGetList()
         {
-            return _servicesDal.GetList();
+            return _serviceDal.GetList();
         }
 
         public void TInsert(Service t)
         {
-            _servicesDal.Insert(t);
+            _serviceDal.Insert(t);
         }
 
         public void TUpdate(Service t)
         {
-            _servicesDal.Update(t);
+            _serviceDal.Update(t);
         }
     }
 }

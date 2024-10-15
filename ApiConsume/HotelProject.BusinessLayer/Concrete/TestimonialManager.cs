@@ -11,36 +11,36 @@ namespace HotelProject.BusinessLayer.Concrete
 {
     public class TestimonialManager : ITestimonialService
     {
-        private readonly ITestimonialDal _testimoniaDal;
+        private readonly ITestimonialDal _testimonialDal;
 
-        public TestimonialManager(ITestimonialDal testimoniaDal)
+        public TestimonialManager(ITestimonialDal testimonialDal)
         {
-            _testimoniaDal = testimoniaDal;
+            _testimonialDal = testimonialDal;
         }
 
         public void TDelete(Testimonial t)
         {
-            _testimoniaDal.Delete(t);
+            _testimonialDal.Delete(t);
         }
 
         public Testimonial TGetById(int id)
         {
-            return _testimoniaDal.GetById(id);
+            return _testimonialDal.GetById(id);
         }
 
         public List<Testimonial> TGetList()
         {
-            return _testimoniaDal.GetList();
+            return _testimonialDal.GetList();
         }
 
         public void TInsert(Testimonial t)
         {
-             _testimoniaDal.Insert(t);
+            _testimonialDal.Insert(t);
         }
 
         public void TUpdate(Testimonial t)
         {
-            _testimoniaDal.Update(t);
+            _testimonialDal.Update(t);
         }
     }
 }
