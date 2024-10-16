@@ -29,21 +29,20 @@ namespace HotelProject.WebUI.Controllers
             var appUser = new AppUser
             {
                 Name = createNewUserDto.Name,
-                Surname = createNewUserDto.SurName,
+                Surname = createNewUserDto.Surname,
                 UserName = createNewUserDto.UserName,
-                Email = createNewUserDto.Mail,
+                Email = createNewUserDto.Mail, 
+                City = createNewUserDto.City,
             };
 
             var result = await _userManager.CreateAsync(appUser, createNewUserDto.Password);
 
+
             if (result.Succeeded)
             {
-                return RedirectToAction("SuccessPage");
+                return RedirectToAction("Index", "Login");
             }
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
+           
 
             return View();
         }

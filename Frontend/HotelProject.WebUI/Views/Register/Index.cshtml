@@ -54,12 +54,16 @@
                                         <span class="text-danger" asp-validation-for="Name"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Surname" asp-for="SurName" >
-                                        <span class="text-danger" asp-validation-for="SurName"></span>
+                                        <input type="text" class="form-control" placeholder="Surname" asp-for="Surname" >
+                                        <span class="text-danger" asp-validation-for="Surname"></span>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Username" asp-for="UserName" >
                                         <span class="text-danger" asp-validation-for="UserName"></span>
+                                    </div>
+                                          <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="City gir " asp-for="City" >
+                                        <span class="text-danger" asp-validation-for="City"></span>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Mail" asp-for="Mail" >
@@ -73,9 +77,9 @@
                                         <input type="password" class="form-control" placeholder="Confirm Password" asp-for="ConfirmPassword" >
                                         <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Kayıt Ol</button>
+                                    <button type="submit" class="btn login-form__btn submit w-100">Kayıt Ol</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Bir Hesabın var mı ?<a href="/Login/Index" class="text-primary"> Giriş Yap</a></p>
+                                <p class="mt-5 login-form__footer">Bir Hesabın var mı ?<a href="/Register/Index/" class="text-primary"> Giriş Yap</a></p>
                       
                             </div>
                         </div>
